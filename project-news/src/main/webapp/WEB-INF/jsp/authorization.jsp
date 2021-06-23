@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="resources/css/main.css">
 </head>
 <body>
-<form action="сontrollerLogging" method="post">
+<form action="controllerLogging" method="post">
 		<input type="hidden" name="button" value="authorization" />
 		Enter login:<br />
 		<input type="text" name="login" value="" /><br /> 

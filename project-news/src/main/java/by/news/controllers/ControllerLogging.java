@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ControllerLogging
  */
-@WebServlet("/сontrollerLogging")
+@WebServlet("/controllerLogging")
 public class ControllerLogging extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -46,18 +46,18 @@ public class ControllerLogging extends HttpServlet {
 			user.setLogin(request.getParameter("login"));
 			user.setPassword(request.getParameter("password"));
 
-			if (user.getLogin().equals("null") && user.getPassword().equals("null")) {
-				out.println("<p> Пользователь " + user.getLogin() + " успешно зарегестрирован! </p>");
+			if (user.getLogin().equals("") || user.getPassword().equals("")) {
+				out.println("<p> Р·Р°РїРѕР»РЅРёС‚Рµ РІСЃРµ РїРѕР»СЏ! </p>");
 			} else {
-				out.println("<p> Заполните все поля </p>");
+				out.println("<p> РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ " + user.getLogin() + " Р·Р°СЂРµРіРµСЃС‚СЂРёСЂРѕРІР°РЅ! </p>");
 			}
 
 		} else {
 
 			if (request.getParameter("login").equals("1111") && request.getParameter("password").equals("1111")) {
-				out.println("<p> Успешная авторизация! </p>");
+				out.println("<p> РђРІС‚РѕСЂРёР·Р°С†РёСЏ РїСЂРѕС€Р»Р° СѓСЃРїРµС€РЅРѕ! </p>");
 			} else {
-				out.println("<p> Проверьте логин или пароль! </p>");
+				out.println("<p> РџСЂРѕРІРµСЂСЊС‚Рµ Р»РѕРіРёРЅ РёР»Рё РїРѕСЂРѕР»СЊ! </p>");
 			}
 
 			out.close();
