@@ -1,4 +1,4 @@
-package by.news.dao.connectionPool;
+package by.news.dao.connection_pool;
 
 import java.sql.Array;
 import java.sql.Blob;
@@ -22,9 +22,7 @@ import java.util.Properties;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
-
-import by.news.dao.conectionPool.config.Config;
-import by.news.service.ServiceProvider;
+import by.news.dao.conection_pool.config.Config;
 
 public final class ConnectionPool {
 

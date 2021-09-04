@@ -1,41 +1,51 @@
 INSERT INTO project_news.news_category (n_category_id, n_category_name) VALUES
-(1, 'Political News'),
-(2, 'Entertainment News'),
-(3, 'Business News'),
-(4, 'Sports News');
+(0, 'Political News'),
+(1, 'Entertainment News'),
+(2, 'Business News'),
+(3, 'Sports News');
+
+INSERT INTO project_news.news_status (n_status_id, n_status_name) VALUES
+(0, 'approved'),
+(1, 'proposed'),
+(2, 'deleted');
 
 INSERT INTO project_news.user_role (u_role_id, u_role_name) VALUES
-(1, 'user'),
-(2, 'admin');
+(0, 'user'),
+(1, 'admin');
 
-INSERT INTO project_news.user (u_login, u_password, u_email, u_role) VALUES ('admin', 'admin', 'admin@mail.ru', 2);
+INSERT INTO project_news.user (u_login, u_password, u_email, u_role) VALUES ('admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin@mail.ru', 1);
 
-INSERT INTO project_news.news (n_category, n_title, n_brief, n_content, n_date) VALUES
-(4, 'How much are Olympic medals worth?', 
+INSERT INTO project_news.news (n_category, n_title, n_brief, n_content, n_date, n_author, n_status) VALUES
+(3, 'How much are Olympic medals worth?', 
 'Olympians taking part in Tokyo 2020 are competing for a chance to write a page in the history books and hopefully bring home a medal.',
 'Olympians taking part in Tokyo 2020 are competing for a chance to write a page in the history books -- and hopefully bring home a medal. If you do win a medal - be it gold, silver or bronze - they''re pretty much priceless.
+
 Former British heptathlete Kelly Sotherton, who won a bronze in heptathlon at Athens 2004 and another for the 4 x 400-meter relay at Beijing 2008, told CNN Sport that her medals are a reminder of how her hard work and effort paid off.
 "I would never sell my medals," Sotherton told CNN Sport on Friday. "They mean a lot."
+
 Sotherton said she keeps her medals accessible rather than putting them up in a frame.
 "I think it''s nice to sometimes put them on," she added.
 The design of the medals changes for each games, and this time around they are the work of Junichi Kawanishi.
 Each of the gold, silver and bronze medals are 85 millimeters in diameter and range in thickness from 7.7 mm to 12.1 mm.
+
 The gold medal is in fact made from gold-plated pure silver, with around 6 grams of gold out of a total weight of 556 grams.
 A silver medal is worth around $450 if you melt it down.
 A silver medal is worth around $450 if you melt it down.
 The silver medal is made from pure silver and weighs around 550 grams, while the bronze medal weighs approximately 450 grams and is in fact made from 95% copper and 5% zinc.
 At today''s prices that means the gold medal would be worth around $800 if you melted it down, while the silver would be worth about $450 and the bronze around $5.
+
 Earlier this month a winner''s medal from the 1896 Athens Olympics sold for $180,000 at auction, Cuban shooter Leuris Pupo''s gold medal from the London 2012 Olympics fetched $73,200, and his compatriot Iván Pedroso''s long jump gold medal from Sydney 2000 went for $71,335. All three were sold by Boston-based RR Auction.
 At the 1896 Games -- the inaugural modern Olympics -- winners were awarded silver medals and those finishing second earned bronze, according to RR Auction.
 Charles Barkley is selling Olympic gold medal and NBA MVP award to build affordable housing in hometown
 Charles Barkley is selling Olympic gold medal and NBA MVP award to build affordable housing in hometown
+
 But those prices pale into insignificance next to the $1.46 million paid for Jesse Owens'' gold medal from the 1936 Berlin Olympics at auction in 2013.
 This medal is considered one of the most important in Olympics history and is one of four that Owens, a Black American, won at the 1936 game, spoiling Adolf Hitler''s planned showcase of Aryan superiority.
 Olympians tend to hold on to medals they have won, according to Richard Gladdle, from Baldwin''s auction house in London, told CNN Sport on Thursday.
 "They very rarely come up for sale," Gladdle told CNN Sport on Friday.
 When they put for auction it tends to be for philanthropic reasons, Gladdle added. The only Olympic medal Baldwin''s has sold was a gold medal from 1912, the last year that they were made from gold.',
-'2021-01-08'),
-(2, 'How much do I need to sleep? It depends on your age', 
+'2021-01-08', 8, 0),
+(1, 'How much do I need to sleep? It depends on your age', 
 'Do you find yourself dozing off at your desk, even after what you thought was a good night''s rest? Then you probably have the same question as so many others: How much do I need to sleep?',
 'Do you find yourself dozing off at your desk, even after what you thought was a good night''s rest? Then you probably have the same question as so many others: How much do I need to sleep?
 
@@ -77,4 +87,4 @@ Sign up for the Sleep, But Better newsletter series. Our seven-part guide has he
 3. Try mindfulness techniques. Breathing exercises, meditation and yoga can also support sleep, Chick added. Her recent study showed that mindfulness training helped children sleep over an hour more per night.
 4. Set good food and exercise habits. Finally, eating healthy and keeping a daily fitness regimen can support better sleep at night, Dasgupta said.
 "Always try to be consistent with exercise during the day," he said. "Exercise relieves stress, it helps build up your drive to sleep at night, so there''s many good things there."',
-'2021-01-08');
+'2021-01-08', 8, 0);

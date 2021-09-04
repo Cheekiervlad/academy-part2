@@ -16,6 +16,9 @@ public class UserServiceImpl implements UserService {
 	private static final DaoProvider provider = DaoProvider.getInstance();
 	private static final UserDao userDao = provider.getUserDao();
 
+	private static final String HASH_FUNCTION = "SHA-256";
+	private static final String FORMAT_SPECIFIER = "%02x";
+
 	@Override
 	public void registration(RegistrationInfo registrationInfo) throws ServiceExeption {
 		try {
@@ -23,7 +26,7 @@ public class UserServiceImpl implements UserService {
 			userDao.saveRegistrationInfo(registrationInfo);
 
 		} catch (DaoExeption e) {
-			throw new ServiceExeption(e);// TODO: handle exception
+			throw new ServiceExeption(e);
 		}
 
 		catch (NoSuchAlgorithmException e) {
@@ -38,15 +41,12 @@ public class UserServiceImpl implements UserService {
 
 		RegistrationInfo registrationInfo = null;
 		try {
-			registrationInfo = userDao.getRegistrationInfo(login);
+			registrationInfo = userDao.getRegistrationInfoByLoginAndPassword(login, hashPassword(password));
 
 			if (registrationInfo == null) {
 				return null;
-			}
-			if (registrationInfo.getPassword().equals(hashPassword(password))) {
-				return registrationInfo;
 			} else {
-				return null;
+				return registrationInfo;
 			}
 		} catch (DaoExeption e) {
 			// TODO log
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
 	public boolean isLoginEmpty(String login) throws ServiceExeption {
 
 		try {
-			RegistrationInfo registrationInfo = userDao.getRegistrationInfo(login);
+			RegistrationInfo registrationInfo = userDao.getRegistrationInfoByLogin(login);
 			return registrationInfo == null;
 		} catch (DaoExeption e) {
 			// TODO log
@@ -73,13 +73,13 @@ public class UserServiceImpl implements UserService {
 
 	private String hashPassword(String password) throws NoSuchAlgorithmException {
 		MessageDigest digest;
-		digest = MessageDigest.getInstance("SHA-256");
+		digest = MessageDigest.getInstance(HASH_FUNCTION);
 
 		byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
 
 		StringBuffer sb = new StringBuffer();
 		for (byte b : hash) {
-			sb.append(String.format("%02x", b));
+			sb.append(String.format(FORMAT_SPECIFIER, b));
 		}
 
 		return sb.toString();

@@ -3,10 +3,7 @@ package by.news.controller.impl;
 import java.io.IOException;
 
 import by.news.bean.RegistrationInfo;
-import by.news.bean.User;
 import by.news.controller.Command;
-import by.news.controller.validator.LoginValidator;
-import by.news.controller.validator.PasswordValidator;
 import by.news.controller.validator.ValidatorProvider;
 import by.news.service.ServiceExeption;
 import by.news.service.ServiceProvider;
@@ -31,9 +28,6 @@ public class SignIn implements Command {
 	private static final String REDIRECT_GO_TO_AUTH_USER_PAGE = "frontController?command=go_to_auth_user_page";
 	private static final String REDIRECT_UNKNOWN_COMMAND_PATH = "frontController?command=unknown_command";
 
-	private static final String REPLACE_IT = ".";
-	private static final String REPLACE_TO = "%3cbr%3e";
-
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String login = request.getParameter(REQUEST_PARAMETR_LOGIN).toLowerCase();
@@ -41,7 +35,7 @@ public class SignIn implements Command {
 
 		String message = validator.validateSingIn(login, password);
 		if (message.length() != 0) {
-			response.sendRedirect(REDIRECT_AUTHORIZATION_ERROR_PATH + message.replace(REPLACE_IT, REPLACE_TO));
+			response.sendRedirect(REDIRECT_AUTHORIZATION_ERROR_PATH + message);
 			return;
 		}
 

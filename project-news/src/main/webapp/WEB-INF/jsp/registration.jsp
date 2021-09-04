@@ -17,7 +17,7 @@
 <link rel="stylesheet" type="text/css" href="resources/css/main.css">
 
 <fmt:setLocale value="${sessionScope.local}" />
-<fmt:setBundle basename="by.news.localization.local" var="loc" />
+<fmt:setBundle basename="localization.local" var="loc" />
 
 <fmt:message bundle="${loc}" key="local.registration.title"
 	var="registration_title" />
@@ -35,12 +35,8 @@
 
 	<jsp:include page="header_main.jsp" />
 
-	<font color="red" size="4"> <%
- String messageError = request.getParameter("message_error");
- if (messageError != null) {
- 	out.print(messageError);
- }
- %>
+	<font color="red" size="4"> <c:out
+			value="${param.message_error}" />
 	</font>
 
 	<form class="form-signin" action="frontController" method="post">
@@ -48,14 +44,23 @@
 
 		<h4 class="h4 mb-3 font-weight-normal">${registration_title}</h4>
 		<input type="hidden" name="command" value="registration_new_user" />
-		<input name="login" id="inputLogin" class="form-control"
-			placeholder="${login }" required autofocus> <input
-			type="email" name="email" id="inputEmail" class="form-control"
-			placeholder="${email }" required> <input type="password"
-			name="password" id="inputPassword" class="form-control"
-			placeholder="${password }" required> <input type="password"
-			name="confirmPassword" id="inputConfirmPassword" class="form-control"
-			placeholder="${confirm_password}" required>
+		<div class="mb-3">
+			<input name="login" id="inputLogin" class="form-control"
+				placeholder="${login }" required autofocus>
+		</div>
+		<div class="mb-3">
+			<input  name="email" id="inputEmail" class="form-control"
+				placeholder="${email }" required>
+		</div>
+		<div class="mb-3">
+			<input  name="password" id="inputPassword"
+				class="form-control" placeholder="${password }" required>
+		</div>
+		<div class="mb-3">
+			<input  name="confirmPassword"
+				id="inputConfirmPassword" class="form-control"
+				placeholder="${confirm_password}" required>
+		</div>
 
 		<button class="btn btn-outline-dark">${button_sign_up}</button>
 

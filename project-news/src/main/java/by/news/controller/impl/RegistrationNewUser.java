@@ -33,9 +33,6 @@ public class RegistrationNewUser implements Command {
 	private static final String REDIRECT_AUTHORIZATION_MESSAGE_PATH = "frontController?command=authorization&message=registration completed successfully";
 	private static final String REDIRECT_UNKNOWN_COMMAND_PATH = "frontController?command=unknown_command";
 
-	private static final String REPLACE_IT = ".";
-	private static final String REPLACE_TO = "%3cbr%3e";
-
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String login = request.getParameter(REQUEST_PARAMETR_LOGIN).toLowerCase();
@@ -45,7 +42,7 @@ public class RegistrationNewUser implements Command {
 
 		String message = validator.validateRegistrationInfo(login, email, password, confirmPassword);
 		if (message.length() != 0) {
-			response.sendRedirect(REDIRECT_REGISTRATION_ERROR_PATH + message.replace(REPLACE_IT, REPLACE_TO));
+			response.sendRedirect(REDIRECT_REGISTRATION_ERROR_PATH + message);
 			return;
 		}
 

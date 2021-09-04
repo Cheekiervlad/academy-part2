@@ -5,6 +5,8 @@ import java.io.Serializable;
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+	private long id;
 	private String login;
 	private String role;
 
@@ -17,10 +19,19 @@ public class User implements Serializable {
 		this.login = login;
 	}
 
-	public User(String login, String role) {
+	public User(Long id, String login, String role) {
 		super();
+		this.id = id;
 		this.login = login;
 		this.role = role;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getLogin() {
@@ -35,14 +46,15 @@ public class User implements Serializable {
 		return role;
 	}
 
-	public void setRole(String password) {
-		this.role = password;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + ((role == null) ? 0 : role.hashCode());
 		return result;
@@ -57,6 +69,8 @@ public class User implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
+		if (id != other.id)
+			return false;
 		if (login == null) {
 			if (other.login != null)
 				return false;
@@ -73,9 +87,11 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("User [login=");
+		builder.append("User [id=");
+		builder.append(id);
+		builder.append(", login=");
 		builder.append(login);
-		builder.append(", password=");
+		builder.append(", role=");
 		builder.append(role);
 		builder.append("]");
 		return builder.toString();

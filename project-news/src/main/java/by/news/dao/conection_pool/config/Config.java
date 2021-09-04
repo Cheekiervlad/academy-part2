@@ -1,4 +1,4 @@
-package by.news.dao.conectionPool.config;
+package by.news.dao.conection_pool.config;
 
 import java.io.InputStream;
 import java.util.Properties;
@@ -9,7 +9,7 @@ public class Config {
 	public static final String DB_PASSWORD = "db.password";
 	public static final String DB_POOLSIZE = "db.poolsize";
 	public static final String DB_LIMIT = "db.limit";
-	public static final String PATH_TO_DAO_PROPERTIES = "/by/news/resources/dao.properties";
+	public static final String PATH_TO_DAO_PROPERTIES = "/resources/dao.properties";
 
 	private static Properties properties = new Properties();
 

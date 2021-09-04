@@ -1,10 +1,11 @@
 package by.news.controller.impl;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import by.news.controller.Command;
-
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -18,7 +19,7 @@ public class ChangeLocale implements Command {
 		request.getSession(true).setAttribute(ATTRIBUTE_NAME_LOCALE, request.getParameter(ATTRIBUTE_NAME_LOCALE));
 		String url = (String) request.getSession().getAttribute(ATTRIBUTE_NAME_URL);
 
-		// for test
+//		 for test
 //		Enumeration<String> ses = request.getSession().getAttributeNames();
 //		while (ses.hasMoreElements()) {
 //			String string = (String) ses.nextElement();

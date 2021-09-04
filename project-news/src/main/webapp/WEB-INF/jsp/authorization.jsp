@@ -16,7 +16,7 @@
 	crossorigin="anonymous">
 
 <fmt:setLocale value="${sessionScope.local}" />
-<fmt:setBundle basename="by.news.localization.local" var="loc" />
+<fmt:setBundle basename="localization.local" var="loc" />
 
 <fmt:message bundle="${loc}" key="local.authorization.title"
 	var="authorization_title" />
@@ -33,31 +33,26 @@
 
 	<jsp:include page="header_main.jsp" />
 
-	<font color="green" size="4"> <%
- String message = request.getParameter("message");
- if (message != null) {
- 	out.print(message);
- }
- %>
+	<font color="green" size="4"> <c:out value="${param.message}" />
 	</font>
 
-	<font color="red" size="4"> <%
- String messageError = request.getParameter("message_error");
- if (messageError != null) {
- 	out.print(messageError);
- }
- %>
+
+	<font color="red" size="4"> <c:out
+			value="${param.message_error}" />
 	</font>
 
 	<form class="form-signin" action="frontController" method="post">
 
 		<h4 class="h4 mb-3 font-weight-normal">${authorization_title}</h4>
-		<input type="hidden" name="command" value="sign_in" /> <input
-			type="login" name="login" id="inputEmail" class="form-control"
-			placeholder="${login}" required autofocus> <input
-			type="password" name="password" id="inputPassword"
-			class="form-control" placeholder="${password}" required>
-		<div class="checkbox mb-3"></div>
+		<input type="hidden" name="command" value="sign_in" />
+		<div class="mb-3">
+			<input name="login" id="inputEmail" class="form-control"
+				placeholder="${login}" required autofocus>
+		</div>
+		<div class="mb-3">
+			<input name="password" id="inputPassword" class="form-control"
+				placeholder="${password}" required>
+		</div>
 		<button class="btn btn-outline-dark">${button_sign_in}</button>
 		<p class="mt-5 mb-3 text-muted">&copy; 2021-2021</p>
 	</form>

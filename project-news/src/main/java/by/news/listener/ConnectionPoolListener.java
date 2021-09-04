@@ -1,7 +1,7 @@
 package by.news.listener;
 
-import by.news.dao.connectionPool.ConnectionPool;
-import by.news.dao.connectionPool.ConnectionPoolException;
+import by.news.dao.connection_pool.ConnectionPool;
+import by.news.dao.connection_pool.ConnectionPoolException;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
@@ -24,7 +24,7 @@ public class ConnectionPoolListener implements ServletContextListener {
 		try {
 			connectionPool.initPoolData();
 		} catch (ConnectionPoolException ex) {
-			throw new RuntimeException(ex.getMessage(), ex);
+			throw new RuntimeException(ex);
 		}
 	}
 

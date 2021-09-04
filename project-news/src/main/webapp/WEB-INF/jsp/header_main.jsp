@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="resources/css/main.css">
 
 <fmt:setLocale value="${sessionScope.local}" />
-<fmt:setBundle basename="by.news.localization.local" var="loc" />
+<fmt:setBundle basename="localization.local" var="loc" />
 <fmt:message bundle="${loc}" key="local.header.title" var="header_title" />
 <fmt:message bundle="${loc}" key="local.button.en" var="button_en" />
 <fmt:message bundle="${loc}" key="local.button.ru" var="button_ru" />
@@ -37,7 +37,8 @@
 			</div>
 			<div class="col-4 text-center">
 				<h2 class=" text-dark">
-					<a href='<c:url value="/frontController?command=go_to_main_page" />'>${header_title}</a>
+					<a
+						href='<c:url value="/frontController?command=go_to_main_page" />'>${header_title}</a>
 				</h2>
 			</div>
 

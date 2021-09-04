@@ -9,9 +9,9 @@ public class ValidatorProvider {
 	private static final PasswordValidator passwordValidator = new PasswordValidator();
 
 	private static final String EROR_MASSAGE_LOGIN = "Login must contain from 2 to 20 characters.";
-	private static final String EROR_MASSAGE_EMAIL = "Wrong email.";
-	private static final String EROR_MASSAGE_PASSWORD = "Password must contain from 2 to 25 characters.";
-	private static final String EROR_MASSAGE_CONFIRM_PASSWORD = "Password don't match with confirm password";
+	private static final String EROR_MASSAGE_EMAIL = " Wrong email.";
+	private static final String EROR_MASSAGE_PASSWORD = " Password must contain from 2 to 25 characters.";
+	private static final String EROR_MASSAGE_CONFIRM_PASSWORD = " Password don't match with confirm password";
 
 	public static ValidatorProvider getInstance() {
 		return instance;

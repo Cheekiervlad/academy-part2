@@ -1,4 +1,4 @@
-package by.news.dao.connectionPool;
+package by.news.dao.connection_pool;
 
 public class ConnectionPoolException extends Exception {
 

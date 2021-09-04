@@ -12,7 +12,7 @@
 
 <body>
 
-<c:redirect url="frontController?command=go_to_main_page" />
+	<c:redirect url="frontController?command=go_to_main_page" />
 
 </body>
 
