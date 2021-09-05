@@ -20,7 +20,6 @@ public class NewsServiceImpl implements NewsService {
 		try {
 			newsDao.saveNews(news);
 		} catch (DaoExeption e) {
-			// TODO log
 			throw new ServiceExeption(e);
 		}
 	}
@@ -30,7 +29,6 @@ public class NewsServiceImpl implements NewsService {
 		try {
 			newsDao.updateNews(news);
 		} catch (DaoExeption e) {
-			// TODO log
 			throw new ServiceExeption(e);
 		}
 	}
@@ -39,7 +37,6 @@ public class NewsServiceImpl implements NewsService {
 		try {
 			newsDao.updateNewsStatusWithNewDate(newsId, newsStatus);
 		} catch (DaoExeption e) {
-			// TODO log
 			throw new ServiceExeption(e);
 		}
 	}
@@ -48,7 +45,6 @@ public class NewsServiceImpl implements NewsService {
 		try {
 			newsDao.updateNewsStatusWithoutNewDate(newsId, newsStatus);
 		} catch (DaoExeption e) {
-			// TODO log
 			throw new ServiceExeption(e);
 		}
 	}
@@ -58,7 +54,6 @@ public class NewsServiceImpl implements NewsService {
 		try {
 			news = newsDao.getNews(id);
 		} catch (DaoExeption e) {
-			// TODO log
 			throw new ServiceExeption(e);
 		}
 		return news;
@@ -70,7 +65,6 @@ public class NewsServiceImpl implements NewsService {
 		try {
 			list = newsDao.getListOfNews(from, numberOfNews, status, pattern);
 		} catch (DaoExeption e) {
-			// TODO log
 			throw new ServiceExeption(e);
 		}
 		return list;
@@ -81,7 +75,6 @@ public class NewsServiceImpl implements NewsService {
 		try {
 			numberOfNews = newsDao.getNumberOfNews(status, pattern);
 		} catch (DaoExeption e) {
-			// TODO log
 			throw new ServiceExeption(e);
 		}
 		return numberOfNews;

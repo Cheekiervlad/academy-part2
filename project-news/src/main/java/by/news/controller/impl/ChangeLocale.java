@@ -1,11 +1,14 @@
 package by.news.controller.impl;
 
 import java.io.IOException;
-import java.util.Enumeration;
+import java.time.LocalDateTime;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import by.news.controller.Command;
+import by.news.dao.impl.NewsDaoImpl;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -16,6 +19,7 @@ public class ChangeLocale implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		request.getSession(true).setAttribute(ATTRIBUTE_NAME_LOCALE, request.getParameter(ATTRIBUTE_NAME_LOCALE));
 		String url = (String) request.getSession().getAttribute(ATTRIBUTE_NAME_URL);
 

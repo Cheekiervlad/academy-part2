@@ -53,7 +53,6 @@ public class SignIn implements Command {
 
 			response.sendRedirect(REDIRECT_GO_TO_AUTH_USER_PAGE);
 		} catch (ServiceExeption e) {
-			// log
 			response.sendRedirect(REDIRECT_UNKNOWN_COMMAND_PATH);
 		}
 

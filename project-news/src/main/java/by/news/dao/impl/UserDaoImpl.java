@@ -5,6 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import by.news.bean.RegistrationInfo;
 import by.news.bean.User;
 import by.news.dao.DaoExeption;
@@ -13,6 +16,9 @@ import by.news.dao.connection_pool.ConnectionPool;
 import by.news.dao.connection_pool.ConnectionPoolException;
 
 public class UserDaoImpl implements UserDao {
+
+	private static final Logger logger = LogManager.getLogger(NewsDaoImpl.class);
+
 	private static final int USER_ROLE_ID = 0;
 
 	public static final String INSERT_USER = "INSERT INTO user(u_login, u_password, u_email, u_role) VALUES(?,?,?,?)";
@@ -44,8 +50,8 @@ public class UserDaoImpl implements UserDao {
 			ps.executeUpdate();
 
 		} catch (SQLException | ConnectionPoolException e) {
+			logger.error(e.getMessage(), e);
 			throw new DaoExeption(e);
-			// TODO log
 		} finally {
 			connectionPool.closseConnection(con, ps);
 		}
@@ -74,8 +80,9 @@ public class UserDaoImpl implements UserDao {
 		} catch (SQLException |
 
 				ConnectionPoolException e) {
+			logger.error(e.getMessage(), e);
 			throw new DaoExeption(e);
-			// TODO log
+
 		} finally {
 			connectionPool.closseConnection(con, ps, rs);
 		}
@@ -106,8 +113,9 @@ public class UserDaoImpl implements UserDao {
 		} catch (SQLException |
 
 				ConnectionPoolException e) {
+			logger.error(e.getMessage(), e);
 			throw new DaoExeption(e);
-			// TODO log
+
 		} finally {
 			connectionPool.closseConnection(con, ps, rs);
 		}

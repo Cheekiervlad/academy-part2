@@ -69,7 +69,7 @@ public class AddNews implements Command {
 			newsService.addNews(news);
 			response.sendRedirect(REDIRECT_GO_TO_AUTH_USER_PAGE);
 		} catch (ServiceExeption e) {
-			// log + eror.jsp
+
 			response.sendRedirect(REDIRECT_UNKNOWN_COMMAND_PATH);
 		}
 	}

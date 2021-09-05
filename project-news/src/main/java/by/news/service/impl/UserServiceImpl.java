@@ -30,7 +30,6 @@ public class UserServiceImpl implements UserService {
 		}
 
 		catch (NoSuchAlgorithmException e) {
-			// TODO log
 			throw new ServiceExeption(e);
 		}
 
@@ -49,12 +48,10 @@ public class UserServiceImpl implements UserService {
 				return registrationInfo;
 			}
 		} catch (DaoExeption e) {
-			// TODO log
 			throw new ServiceExeption(e);
 		}
 
 		catch (NoSuchAlgorithmException e) {
-			// TODO log
 			throw new ServiceExeption(e);
 		}
 	}
@@ -66,7 +63,6 @@ public class UserServiceImpl implements UserService {
 			RegistrationInfo registrationInfo = userDao.getRegistrationInfoByLogin(login);
 			return registrationInfo == null;
 		} catch (DaoExeption e) {
-			// TODO log
 			throw new ServiceExeption(e);
 		}
 	}

@@ -1,6 +1,7 @@
 package by.news.dao.impl;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,6 +9,9 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import by.news.bean.News;
 import by.news.bean.NewsCategory;
@@ -19,6 +23,8 @@ import by.news.dao.connection_pool.ConnectionPool;
 import by.news.dao.connection_pool.ConnectionPoolException;
 
 public class NewsDaoImpl implements NewsDao {
+
+	private static final Logger logger = LogManager.getLogger(NewsDaoImpl.class);
 
 	public static final String SELECT_NEWS = "SELECT n.*, u.u_login, ur.u_role_name "
 			+ "FROM news n INNER JOIN user u ON u.u_id = n.n_author "
@@ -46,6 +52,7 @@ public class NewsDaoImpl implements NewsDao {
 
 	@Override
 	public void saveNews(News news) throws DaoExeption {
+		logger.debug("News:{}", news);
 		ConnectionPool connectionPool = ConnectionPool.getInstance();
 
 		Connection con = null;
@@ -64,8 +71,8 @@ public class NewsDaoImpl implements NewsDao {
 			ps.executeUpdate();
 
 		} catch (SQLException | ConnectionPoolException e) {
+			logger.error(e.getMessage(), e);
 			throw new DaoExeption(e);
-			// TODO log
 		} finally {
 			connectionPool.closseConnection(con, ps);
 		}
@@ -102,8 +109,8 @@ public class NewsDaoImpl implements NewsDao {
 				news.setUser(user);
 			}
 		} catch (SQLException | ConnectionPoolException e) {
+			logger.error(e.getMessage(), e);
 			throw new DaoExeption(e);
-			// TODO log
 		} finally {
 			connectionPool.closseConnection(con, ps, rs);
 		}
@@ -146,8 +153,8 @@ public class NewsDaoImpl implements NewsDao {
 			}
 
 		} catch (SQLException | ConnectionPoolException e) {
+			logger.error(e.getMessage(), e);
 			throw new DaoExeption(e);
-			// TODO log
 		} finally {
 			connectionPool.closseConnection(con, ps, rs);
 		}
@@ -175,8 +182,8 @@ public class NewsDaoImpl implements NewsDao {
 			numberOfNews = rs.getLong("number");
 
 		} catch (SQLException | ConnectionPoolException e) {
+			logger.error(e.getMessage(), e);
 			throw new DaoExeption(e);
-			// TODO log
 		} finally {
 			connectionPool.closseConnection(con, ps, rs);
 		}
@@ -202,8 +209,8 @@ public class NewsDaoImpl implements NewsDao {
 			ps.executeUpdate();
 
 		} catch (SQLException | ConnectionPoolException e) {
+			logger.error(e.getMessage(), e);
 			throw new DaoExeption(e);
-			// TODO log
 		} finally {
 			connectionPool.closseConnection(con, ps);
 		}
@@ -225,8 +232,8 @@ public class NewsDaoImpl implements NewsDao {
 			ps.executeUpdate();
 
 		} catch (SQLException | ConnectionPoolException e) {
+			logger.error(e.getMessage(), e);
 			throw new DaoExeption(e);
-			// TODO log
 		} finally {
 			connectionPool.closseConnection(con, ps);
 		}
@@ -247,8 +254,8 @@ public class NewsDaoImpl implements NewsDao {
 			ps.executeUpdate();
 
 		} catch (SQLException | ConnectionPoolException e) {
+			logger.error(e.getMessage(), e);
 			throw new DaoExeption(e);
-			// TODO log
 		} finally {
 			connectionPool.closseConnection(con, ps);
 		}

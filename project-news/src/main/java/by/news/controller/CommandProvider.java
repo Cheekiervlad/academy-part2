@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import by.news.controller.impl.AddNews;
+import by.news.controller.impl.ApproveProposedNews;
 import by.news.controller.impl.ChangeLocale;
 import by.news.controller.impl.DeleteNews;
 import by.news.controller.impl.GoToAddingNewsPage;
@@ -21,7 +22,6 @@ import by.news.controller.impl.RestoreDeletedNews;
 import by.news.controller.impl.SignIn;
 import by.news.controller.impl.UnknownCommand;
 import by.news.controller.impl.UpdateNews;
-import by.news.controller.impl.ApproveProposedNews;
 
 public class CommandProvider {
 	private static final Map<CommandName, Command> commands = new HashMap<>();

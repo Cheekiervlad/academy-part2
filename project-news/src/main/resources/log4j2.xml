@@ -1,0 +1,37 @@
+<configuration>
+	<Properties>
+		<Property name="filename">logs/log.log</Property>
+		<Property name="basePatterLayout">%d{UTF-8} [%-5p] (%F:%L) - %m%n</Property>
+	</Properties>
+	<appenders>
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout pattern="${basePatterLayout}" />
+		</Console>
+
+		<RollingFile name="File" fileName="${filename}"
+			filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz"
+			immediateFlush="true" append="true">
+			<PatternLayout>
+				<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} -
+					%msg%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+		</RollingFile>
+
+
+	</appenders>
+	<loggers>
+
+		<logger name="by.news.dao" level="debug" additivity="false">
+			<appender-ref ref="STDOUT" />
+			<appender-ref ref="File" />
+		</logger>
+		<root level="warn">
+			<appender-ref ref="File" />
+			<appender-ref ref="STDOUT" />
+		</root>
+	</loggers>
+</configuration>

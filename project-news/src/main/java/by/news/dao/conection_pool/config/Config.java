@@ -9,7 +9,7 @@ public class Config {
 	public static final String DB_PASSWORD = "db.password";
 	public static final String DB_POOLSIZE = "db.poolsize";
 	public static final String DB_LIMIT = "db.limit";
-	public static final String PATH_TO_DAO_PROPERTIES = "/resources/dao.properties";
+	public static final String PATH_TO_DAO_PROPERTIES = "dao.properties";
 
 	private static Properties properties = new Properties();
 

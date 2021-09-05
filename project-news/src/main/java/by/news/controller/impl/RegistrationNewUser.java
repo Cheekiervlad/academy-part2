@@ -1,14 +1,10 @@
 package by.news.controller.impl;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 
 import by.news.bean.RegistrationInfo;
 import by.news.bean.User;
 import by.news.controller.Command;
-import by.news.controller.validator.EmailValidator;
-import by.news.controller.validator.LoginValidator;
-import by.news.controller.validator.PasswordValidator;
 import by.news.controller.validator.ValidatorProvider;
 import by.news.service.ServiceExeption;
 import by.news.service.ServiceProvider;
@@ -59,7 +55,6 @@ public class RegistrationNewUser implements Command {
 
 			response.sendRedirect(REDIRECT_AUTHORIZATION_MESSAGE_PATH);
 		} catch (ServiceExeption e) {
-			// log + eror.jsp
 			response.sendRedirect(REDIRECT_UNKNOWN_COMMAND_PATH);
 		}
 

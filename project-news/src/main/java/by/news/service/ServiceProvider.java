@@ -10,6 +10,7 @@ public final class ServiceProvider {
 	private final NewsService newsService = new NewsServiceImpl();
 	
 	private ServiceProvider() {
+	
 		
 	}
 

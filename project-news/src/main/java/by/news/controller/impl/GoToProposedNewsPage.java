@@ -66,7 +66,6 @@ public class GoToProposedNewsPage implements Command {
 		} catch (ServiceExeption e) {
 			response.sendRedirect(REDIRECT_UNKNOWN_COMMAND_PATH);
 			return;
-			// TODO eror.jsp, log
 		}
 
 		request.setAttribute(REQUEST_ATTRIBUTE_LIST_NEWS, listOfNews);

@@ -1,9 +1,7 @@
 package by.news.controller.impl;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import by.news.bean.News;
-import by.news.bean.NewsCategory;
+
 import by.news.bean.NewsStatus;
 import by.news.bean.User;
 import by.news.controller.Command;
@@ -51,7 +49,6 @@ public class DeleteNews implements Command {
 			newsService.updateNewsStatusWithoutNewDate(newsId, NEWS_STATUS_DELETED);
 			response.sendRedirect(REDIRECT_GO_TO_AUTH_USER_PAGE);
 		} catch (ServiceExeption e) {
-			// log + eror.jsp
 			response.sendRedirect(REDIRECT_UNKNOWN_COMMAND_PATH);
 		}
 	}
