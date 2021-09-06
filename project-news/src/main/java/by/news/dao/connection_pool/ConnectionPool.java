@@ -22,7 +22,8 @@ import java.util.Properties;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
-import by.news.dao.conection_pool.config.Config;
+
+import by.news.dao.connection_pool.config.Config;
 
 public final class ConnectionPool {
 

@@ -1,21 +1,21 @@
-INSERT INTO project_news.news_category (n_category_id, n_category_name) VALUES
+INSERT INTO project_news_test.news_category (n_category_id, n_category_name) VALUES
 (0, 'Political News'),
 (1, 'Entertainment News'),
 (2, 'Business News'),
 (3, 'Sports News');
 
-INSERT INTO project_news.news_status (n_status_id, n_status_name) VALUES
+INSERT INTO project_news_test.news_status (n_status_id, n_status_name) VALUES
 (0, 'approved'),
 (1, 'proposed'),
 (2, 'deleted');
 
-INSERT INTO project_news.user_role (u_role_id, u_role_name) VALUES
+INSERT INTO project_news_test.user_role (u_role_id, u_role_name) VALUES
 (0, 'user'),
 (1, 'admin');
 
-INSERT INTO project_news.user (u_login, u_password, u_email, u_role) VALUES ('admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin@mail.ru', 1);
+INSERT INTO project_news_test.user (u_login, u_password, u_email, u_role) VALUES ('admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin@mail.ru', 1);
 
-INSERT INTO project_news.news (n_category, n_title, n_brief, n_content, n_date, n_author, n_status) VALUES
+INSERT INTO project_news_test.news (n_category, n_title, n_brief, n_content, n_date, n_author, n_status) VALUES
 (3, 'How much are Olympic medals worth?', 
 'Olympians taking part in Tokyo 2020 are competing for a chance to write a page in the history books and hopefully bring home a medal.',
 'Olympians taking part in Tokyo 2020 are competing for a chance to write a page in the history books -- and hopefully bring home a medal. If you do win a medal - be it gold, silver or bronze - they''re pretty much priceless.
@@ -44,7 +44,7 @@ This medal is considered one of the most important in Olympics history and is on
 Olympians tend to hold on to medals they have won, according to Richard Gladdle, from Baldwin''s auction house in London, told CNN Sport on Thursday.
 "They very rarely come up for sale," Gladdle told CNN Sport on Friday.
 When they put for auction it tends to be for philanthropic reasons, Gladdle added. The only Olympic medal Baldwin''s has sold was a gold medal from 1912, the last year that they were made from gold.',
-'2021-01-08', 8, 0),
+'2021-01-08', 1, 0),
 (1, 'How much do I need to sleep? It depends on your age', 
 'Do you find yourself dozing off at your desk, even after what you thought was a good night''s rest? Then you probably have the same question as so many others: How much do I need to sleep?',
 'Do you find yourself dozing off at your desk, even after what you thought was a good night''s rest? Then you probably have the same question as so many others: How much do I need to sleep?
@@ -87,4 +87,4 @@ Sign up for the Sleep, But Better newsletter series. Our seven-part guide has he
 3. Try mindfulness techniques. Breathing exercises, meditation and yoga can also support sleep, Chick added. Her recent study showed that mindfulness training helped children sleep over an hour more per night.
 4. Set good food and exercise habits. Finally, eating healthy and keeping a daily fitness regimen can support better sleep at night, Dasgupta said.
 "Always try to be consistent with exercise during the day," he said. "Exercise relieves stress, it helps build up your drive to sleep at night, so there''s many good things there."',
-'2021-01-08', 8, 0);
+'2021-01-08', 1, 0);

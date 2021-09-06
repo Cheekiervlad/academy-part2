@@ -8,7 +8,7 @@ import java.util.List;
 import by.news.bean.News;
 import by.news.bean.NewsStatus;
 import by.news.controller.Command;
-import by.news.dao.conection_pool.config.Config;
+import by.news.dao.connection_pool.config.Config;
 import by.news.service.NewsService;
 import by.news.service.ServiceExeption;
 import by.news.service.ServiceProvider;

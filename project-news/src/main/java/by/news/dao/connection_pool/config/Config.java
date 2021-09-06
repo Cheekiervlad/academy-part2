@@ -1,4 +1,4 @@
-package by.news.dao.conection_pool.config;
+package by.news.dao.connection_pool.config;
 
 import java.io.InputStream;
 import java.util.Properties;
